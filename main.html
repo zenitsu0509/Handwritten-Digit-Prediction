@@ -1,28 +1,77 @@
+<!-- frontend/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handwritten Digit Predictor</title>
+    <title>AI Digit Predictor</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Handwritten Digit Predictor</h1>
-    <p>Draw a digit (0-9) in the box below.</p>
-    
-    <div class="canvas-container">
-        <canvas id="digit-canvas" width="280" height="280"></canvas>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>AI Digit Predictor</h1>
+                </div>
+                <p class="subtitle">Advanced neural network powered handwritten digit recognition</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-pencil-alt"></i> Draw Your Digit</h2>
+                    <p>Draw any digit from 0-9 in the canvas below</p>
+                </div>
+                
+                <div class="canvas-section">
+                    <div class="canvas-container">
+                        <canvas id="digit-canvas" width="280" height="280"></canvas>
+                        <div class="canvas-overlay">
+                            <i class="fas fa-hand-pointer"></i>
+                            <span>Click and drag to draw</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-section">
+                    <button id="predict-button" class="btn btn-primary">
+                        <i class="fas fa-magic"></i>
+                        <span>Predict Digit</span>
+                    </button>
+                    <button id="clear-button" class="btn btn-secondary">
+                        <i class="fas fa-eraser"></i>
+                        <span>Clear Canvas</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="prediction-card">
+                <div class="prediction-header">
+                    <h3><i class="fas fa-robot"></i> AI Prediction</h3>
+                </div>
+                <div class="prediction-content">
+                    <div class="prediction-result">
+                        <span id="prediction-result" class="result-digit">?</span>
+                    </div>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" id="confidence-fill"></div>
+                    </div>
+                    <p class="confidence-text" id="confidence-text">Draw a digit to see prediction</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Powered by TensorFlow & Python Flask</p>
+        </footer>
     </div>
 
-    <div class="buttons-container">
-        <button id="predict-button">Predict</button>
-        <button id="clear-button">Clear</button>
-    </div>
-
-    <h2>Prediction: <span id="prediction-result"></span></h2>
-
-    <!-- TensorFlow.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <!-- We NO LONGER need the TensorFlow.js library! -->
     <!-- Our script -->
     <script src="script.js"></script>
 </body>
