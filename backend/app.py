@@ -13,8 +13,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app) # This will enable CORS for all routes
 
-# Load the pre-trained Keras model
-# This is loaded only once when the server starts
 def get_model():
     global model
     model = load_model('mnist_cnn.h5')
