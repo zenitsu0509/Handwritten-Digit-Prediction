@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 from flask import request, jsonify, Flask
 from flask_cors import CORS
 
-# Initialize our Flask application
+
 app = Flask(__name__)
 CORS(app) # This will enable CORS for all routes
 
